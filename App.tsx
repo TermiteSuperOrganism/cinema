@@ -30,6 +30,7 @@ export default function App() {
         title="Vingadoers: Ultimato"
         category="Ação"
         rating={4.9}
+        favorite={true}
       />
     </View>
   );

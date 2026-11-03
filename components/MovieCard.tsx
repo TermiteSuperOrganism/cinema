@@ -1,5 +1,6 @@
-import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
+import { Image, ImageSourcePropType, Pressable, StyleSheet, Text, View } from "react-native";
 import Rating from "./Rating";
+import { Ionicons } from "@expo/vector-icons";
 
 export type MovieCardProps = {
     image: ImageSourcePropType;
@@ -32,7 +33,18 @@ export default function MovieCard({
                     </View>
                     <Rating value={rating}></Rating>
                 </View>
-
+                <View>
+                    <Pressable onPress={onDetails} style={styles.detailsButton}>
+                        <Text style={styles.detailsButtonText}>Ver detalhes</Text>
+                    </Pressable>
+                    <Pressable>
+                        <Ionicons 
+                        name={favorite? "heart":"heart-outline"} 
+                        size={20} 
+                        color={favorite? "#ff3366":"#94a3b8"}
+                        />
+                    </Pressable>
+                </View>
             </View>
         </View>
     );
@@ -75,5 +87,20 @@ const styles=StyleSheet.create({
         fontSize:14,
         fontWeight:"700",
         color:"#94a3b8",
+    },
+    detailsButton:{
+        flex: 1,
+        height: 42,
+        backgroundColor:"#1e2437",
+        borderRadius: 12,
+        borderWidth:1,
+        borderColor:"#2d3650",
+        justifyContent:"center",
+        alignItems: "center",
+    },
+    detailsButtonText:{
+        fontSize: 14,
+        fontWeight:"700",
+        color:"#fff",
     },
 });
