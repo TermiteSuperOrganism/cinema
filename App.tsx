@@ -28,6 +28,8 @@ export default function App() {
       <MovieCard
         image={require("./assets/movies/vingadores-ultimato.jpg")}
         title="Vingadoers: Ultimato"
+        category="Ação"
+        rating={4.9}
       />
     </View>
   );
