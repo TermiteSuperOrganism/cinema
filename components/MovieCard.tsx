@@ -40,7 +40,10 @@ export default function MovieCard({
                     <Pressable style={[
                         styles.favoriteButton,
                         favorite && styles.favoriteButtonActive
-                    ]}>
+                    ]}
+                    onPress={onFavorite}
+                    hitSlop={8}
+                    >
                         <Ionicons 
                         name={favorite? "heart":"heart-outline"} 
                         size={20} 
@@ -61,6 +64,7 @@ const styles=StyleSheet.create({
         backgroundColor:"#141724",
         overflow:"hidden",
         marginHorizontal:20,
+        marginBottom:20,
     },
     image:{
         width: "100%",

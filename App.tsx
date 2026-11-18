@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import CategoryButton from './components/CategoryButton';
@@ -6,7 +6,7 @@ import MovieCard from './components/MovieCard';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <StatusBar barStyle="light-content" />
       <Header />
       <SearchBar />
@@ -32,7 +32,9 @@ export default function App() {
         rating={4.9}
         favorite={true}
       />
-    </View>
+
+      
+    </ScrollView>
   );
 }
 
