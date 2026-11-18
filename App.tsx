@@ -9,12 +9,21 @@ import { useState } from 'react';
 
 export default function App() {
   const [search,setSearch]=useState("");
+  const filteredMovies=movies.filter((movie)=>{
+    const matchesSearch=movie.title
+    .toLowerCase()
+    .includes(search.toLowerCase().trim());
+    return matchesSearch;
+  });
+  const handleSearchClear= ()=>{
+    setSearch("");
+  }
 
   return (
     <ScrollView style={styles.container}>
       <StatusBar barStyle="light-content" />
       <Header />
-      <SearchBar />
+      <SearchBar value={search} onChangeText={setSearch} onClear={handleSearchClear} />
       <View style={styles.containerCategory}>
         <CategoryButton title="Todos" selected={true} />
         <CategoryButton title="Ação" selected={false} />
@@ -30,7 +39,7 @@ export default function App() {
         </View>
       </View>
 
-      {movies.map((movie)=>(
+      {filteredMovies.map((movie)=>(
         <MovieCard 
         key={movie.id}
         image={movie.image}
