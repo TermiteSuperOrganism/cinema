@@ -3,8 +3,13 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import CategoryButton from './components/CategoryButton';
 import MovieCard from './components/MovieCard';
+import { categories } from './data/categories';
+import { movies } from './data/movies';
+import { useState } from 'react';
 
 export default function App() {
+  const [search,setSearch]=useState("");
+
   return (
     <ScrollView style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -25,13 +30,18 @@ export default function App() {
         </View>
       </View>
 
-      <MovieCard
-        image={require("./assets/movies/vingadores-ultimato.jpg")}
-        title="Vingadoers: Ultimato"
-        category="Ação"
-        rating={4.9}
-        favorite={true}
-      />
+      {movies.map((movie)=>(
+        <MovieCard 
+        key={movie.id}
+        image={movie.image}
+        title={movie.title}
+        category={movie.category}
+        rating={movie.rating}
+        favorite={false}
+        onDetails={()=>{}}
+        onFavorite={()=>{}}
+        />
+      ))}
 
       
     </ScrollView>
